@@ -1,0 +1,15 @@
+services:
+  api:
+    build: .
+    container_name: project-manager
+    ports:
+      - "8000:8000"
+    volumes:
+      - project-manager-data:/app
+        # Hay 2 tipos de volumnes:
+        # montura: local (a una nueva carpeta en el proyecto 'app-data')
+        # manejado por docker (el que usamos aqui)
+    restart: unless-stopped # si pasa algo, el contenedor se va a restart
+ 
+volumes:
+  - project-manager-data: 
